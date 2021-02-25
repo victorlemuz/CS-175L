@@ -2,16 +2,19 @@
    A bank account has a balance and a mechanism for
    applying interest or fees at the end of the month.
 */
-public class BankAccount
-{
-   protected double balance;
+public class BankAccount {
+  
+	
+	protected double balance;
+   double interestPct;
 
    /**
       Constructs a bank account with zero balance.
    */
-   public BankAccount(double amount)
+   public BankAccount(double amount, double interestpct)
    {
       balance = amount;
+      interestPct = interestpct;
    }
 
    /**
@@ -21,6 +24,7 @@ public class BankAccount
    public void deposit(double amount)
    {
       balance = balance + amount;
+      System.out.println("Deposited: " + amount);
    }
 
    /**
@@ -28,10 +32,18 @@ public class BankAccount
       sufficient funds are not available.
       @param amount the amount of the withdrawal
    */
-   public void withdraw(double amount)
+   public double withdraw(double amount)
    {
-      balance = balance - amount;
-   }
+	   if(balance < amount)
+	   {
+		   System.out.println("Insufficient Funds to support withdrawal");
+	   }
+	   else {
+		   balance = balance - amount;
+		   System.out.println("Withdrew: " + amount);
+		}
+	   return balance;
+	}
    /**
       Gets the current balance of this bank account.
       @return the current balance
@@ -39,5 +51,12 @@ public class BankAccount
    public double getBalance()
    {
       return balance;
+   }
+   public double calcInterest()
+   {
+	   double totInterest = (balance*interestPct);
+	   System.out.println("Interest: " + totInterest);
+	   balance = balance + totInterest;
+	   return balance;
    }
 }
