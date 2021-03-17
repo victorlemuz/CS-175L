@@ -18,8 +18,6 @@ public class ageCalc {
 		String today = JOptionPane.showInputDialog("Enter today's date (MM/DD/YYYY)");
 		LocalDate todayDate = LocalDate.now();
 		
-		
-		
 		int years = Period.between(birthDate, todayDate).getYears();
 		int months = Period.between(birthDate, todayDate).getMonths();
 		int days = Period.between(birthDate, todayDate).getDays();
