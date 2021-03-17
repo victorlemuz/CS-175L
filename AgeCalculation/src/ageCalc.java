@@ -24,7 +24,7 @@ public class ageCalc {
 		int months = Period.between(birthDate, todayDate).getMonths();
 		int days = Period.between(birthDate, todayDate).getDays();
 		
-		JOptionPane.showMessageDialog(null, "You are " + years + " , " + months + " month(s) " + " , and  " + days + " old.");
+		JOptionPane.showMessageDialog(null, "You are " + years + " , " + months + " month(s) old.");
 		
 		
 		
